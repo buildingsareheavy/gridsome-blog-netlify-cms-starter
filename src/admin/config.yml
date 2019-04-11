@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+
+media_folder: "static/content/posts/images"
+public_folder: "content/posts/images"
+
+publish_mode: editorial_workflow
+show_preview_links: true
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Cover Image",
+          name: "cover-image",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          # default: ["post"],
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+  #
